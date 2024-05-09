@@ -1,0 +1,9 @@
+<launch>
+<arg name="model" />
+<param name="robot_description" textfile="$(find jdamr_ros_bringup)/urdf/jdamr.urdf" />
+<!--<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>-->
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_dd)/robot_dd.rviz" required="True"/>
+<node pkg="jdamr_ros_bringup" type="jdamr_bringup.py" name="jdamr_driver_node" required="true" output="screen" />
+
+</launch>
